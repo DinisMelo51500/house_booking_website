@@ -1,4 +1,4 @@
 Authors:
--Dinis Melo
--Vasco Caramelo
--Guilherme Lamego
+- Dinis Melo
+- Vasco Caramelo
+- Guilherme Lamego
