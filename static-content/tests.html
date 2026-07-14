@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Mocha Tests</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/mocha/mocha.css"
+    >
+
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+
+<div id="mocha"></div>
+
+<!-- MOCHA -->
+<script src="https://unpkg.com/mocha/mocha.js"></script>
+
+<!-- CHAI -->
+<script src="https://cdn.jsdelivr.net/npm/chai@4/chai.min.js"></script>
+
+<script>
+
+    mocha.setup("bdd")
+
+    window.expect = chai.expect
+    window.assert = chai.assert
+
+    chai.should()
+
+</script>
+
+<!-- LOAD TESTS + RUN -->
+<script type="module">
+
+    await Promise.all([
+
+        // ROUTER
+        import("./tests/router/test.router.js"),
+
+        // HELPERS
+        import("./tests/helpers/test.helpers.js"),
+
+        // API
+        import("./tests/api/test.housesApi.js"),
+        import("./tests/api/test.bookingsApi.js"),
+        import("./tests/api/test.usersApi.js"),
+        import("./tests/api/test.locationsApi.js"),
+
+        //VIEWS
+        import("./tests/views/test.homeViews.js"),
+        import("./tests/views/test.houseViews.js"),
+        import("./tests/views/test.bookingViews.js"),
+
+        // HANDLERS
+        import("./tests/handlers/test.homeHandlers.js"),
+        import("./tests/handlers/test.houseHandlers.js"),
+        import("./tests/handlers/test.userHandlers.js"),
+        import("./tests/handlers/test.locationHandlers.js"),
+        import("./tests/handlers/test.bookingHandlers.js")
+
+    ])
+
+    mocha.checkLeaks()
+
+    mocha.run()
+
+</script>
+
+</body>
+
+</html>

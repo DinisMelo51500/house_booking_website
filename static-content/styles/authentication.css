@@ -1,0 +1,88 @@
+.auth-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 40px auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.auth-container__header {
+    margin-bottom: 25px;
+}
+
+.auth-container__title {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+/* Submit Button matched to your app's style */
+.auth-form input[type="submit"] {
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 10px;
+}
+
+.auth-form input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+.auth-container__actions {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.auth-container__link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-container__link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: House Rental API
+  version: 1.0.0
+  description: API for managing users, locations, houses and bookings.
+
+servers:
+  - url: http://localhost:9000
+
+tags:
+  - name: Users
+  - name: Locations
+  - name: Houses
+  - name: Bookings
+
+paths:
+
+  /users:
+    get:
+      tags: [Users]
+      parameters:
+        - name: skip
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+
+    post:
+      tags: [Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email]
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: Created
+
+  /users/{id}:
+    get:
+      tags: [Users]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
+  /locations:
+    get:
+      tags: [Locations]
+      parameters:
+        - name: skip
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+
+    post:
+      tags: [Locations]
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, type]
+              properties:
+                name:
+                  type: string
+                type:
+                  type: string
+                  enum: [COUNTRY, REGION, DISTRICT, MUNICIPALITY, LOCALITY]
+                parentId:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+
+  /locations/{id}:
+    get:
+      tags: [Locations]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+
+  /houses:
+    get:
+      tags: [Houses]
+      parameters:
+        - name: skip
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+
+    post:
+      tags: [Houses]
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, location, areaSqMt, pricePerNight, description, ownerId]
+              properties:
+                title:
+                  type: string
+                location:
+                  type: integer
+                areaSqMt:
+                  type: integer
+                pricePerNight:
+                  type: number
+                description:
+                  type: string
+                ownerId:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+
+  /houses/{id}:
+    get:
+      tags: [Houses]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+
+  /bookings:
+    post:
+      tags: [Bookings]
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, houseId, startDate, endDate]
+              properties:
+                userId:
+                  type: integer
+                houseId:
+                  type: integer
+                startDate:
+                  type: string
+                  format: date
+                endDate:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Created
+
+  /bookings/{id}:
+    get:
+      tags: [Bookings]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+
+  /bookings/{houseId}/dates:
+    get:
+      tags: [Bookings]
+      parameters:
+        - name: houseId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: startDate
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: skip
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK

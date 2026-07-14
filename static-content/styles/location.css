@@ -1,0 +1,38 @@
+/* ── LOCATION BREADCRUMB ── */
+.location-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* cada item */
+.location-breadcrumb__item {
+    display: flex;
+    align-items: center;
+}
+
+/* links (usa o teu estilo global de a, só refinamos aqui se quiseres) */
+.location-breadcrumb__item a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* separador */
+.location-breadcrumb__sep {
+    margin: 0 6px;
+    color: #aaa;
+}
+
+/* último item */
+.location-breadcrumb__current {
+    font-weight: 700;
+    color: #111;
+}
+
+.location-details {
+    max-width: 800px;
+    margin: 0 auto;
+}

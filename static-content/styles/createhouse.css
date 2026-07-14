@@ -1,0 +1,64 @@
+/* ── PÁGINA CRIAR CASA (ESTILO INTEGRADO) ── */
+
+/* Container centralizado igual aos detalhes das outras casas */
+.create-house-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.create-house-container h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+/* Espaçamento vertical entre os blocos do formulário */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Container cinza suave para a árvore de dropdowns */
+.location-cascade {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+/* Sub-labels mais discretas dentro da cascata */
+.cascade-item label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* O efeito visual de escada/hierarquia */
+.location-cascade .cascade-item:nth-child(2) { margin-left: 20px; border-left: 2px solid #cbd5e1; padding-left: 12px; }
+.location-cascade .cascade-item:nth-child(3) { margin-left: 40px; border-left: 2px solid #cbd5e1; padding-left: 12px; }
+.location-cascade .cascade-item:nth-child(4) { margin-left: 60px; border-left: 2px solid #cbd5e1; padding-left: 12px; }
+
+/* Margem de segurança para o input manual de novas localizações */
+.manual-location-input {
+    margin: 8px 0;
+}

@@ -1,0 +1,106 @@
+/* ─────────────────────────────
+   HOUSE AVAILABILITY PAGE
+───────────────────────────── */
+.house-availability {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.house-availability h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.house-availability__subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+/* ─────────────────────────────
+   FORM
+───────────────────────────── */
+.house-availability form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.house-availability label {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    gap: 6px;
+    color: #555;
+}
+
+/* inputs */
+.house-availability input[type="number"] {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 140px;
+    font-size: 14px;
+    outline: none;
+}
+
+.house-availability input[type="number"]:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* submit button */
+.house-availability input[type="submit"] {
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: #10b981;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.house-availability input[type="submit"]:hover {
+    background: #059669;
+}
+
+/* ─────────────────────────────
+   CALENDAR GRID
+───────────────────────────── */
+.availability-grid {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+/* day box */
+.day-box {
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* available day */
+.day-box.available {
+    background: rgba(16, 185, 129, 0.15);
+    color: #065f46;
+}
+
+/* booked day */
+.day-box.booked {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
